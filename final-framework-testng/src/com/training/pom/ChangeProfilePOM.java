@@ -51,7 +51,8 @@ private WebDriver driver;
 	public void editProfile() {
 		Actions builder = new Actions(driver);
 		builder.moveToElement(EditProfile).build().perform();
-		//this.EditProfile.click();
+		
+		
 	}
 
 }
