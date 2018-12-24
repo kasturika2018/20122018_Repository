@@ -9,11 +9,11 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">72,981</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">69,479</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.training.sanity.tests.ChangeProfile</td><td><a href="#m0">validLoginTest</a></td><td rowspan="1">1545650612086</td><td rowspan="1">35577</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.training.sanity.tests.ChangeProfile</td><td><a href="#m0">validLoginTest</a></td><td rowspan="1">1545676950414</td><td rowspan="1">35383</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.training.sanity.tests.ChangeProfile#validLoginTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;wp-admin-bar-my-account&quot;}
+<h2>Default test</h2><h3 id="m0">com.training.sanity.tests.ChangeProfile#validLoginTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;class name&quot;,&quot;selector&quot;:&quot;user-menu-active&quot;}
   (Session info: chrome=71.0.3578.98)
   (Driver info: chromedriver=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
@@ -21,9 +21,9 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
 System info: host: &apos;DESKTOP-AGPQPNA&apos;, ip: &apos;9.85.72.63&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_191&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:51078}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\KASTUR~1\AppData\Local\Temp\scoped_dir14468_5383}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.98, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 23400584f8a0ee50c72294ce0900c57a
-*** Element info: {Using=id, value=wp-admin-bar-my-account}
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:59769}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\KASTUR~1\AppData\Local\Temp\scoped_dir20152_4557}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.98, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 9702f8bafb56d7d062ec1613e43d0d90
+*** Element info: {Using=class name, value=user-menu-active}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -37,13 +37,13 @@ Session ID: 23400584f8a0ee50c72294ce0900c57a
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:402)
-	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:442)
+	at org.openqa.selenium.By$ByClassName.findElement(By.java:391)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at com.sun.proxy.$Proxy10.click(Unknown Source)
-	at com.training.pom.ChangeProfilePOM.EditProfile(ChangeProfilePOM.java:74)
+	at com.training.pom.ChangeProfilePOM.UserProfileclick(ChangeProfilePOM.java:78)
 	at com.training.sanity.tests.ChangeProfile.validLoginTest(ChangeProfile.java:58)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)

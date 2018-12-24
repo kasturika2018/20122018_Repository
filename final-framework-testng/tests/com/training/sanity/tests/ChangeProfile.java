@@ -50,13 +50,14 @@ public class ChangeProfile {
 	public void validLoginTest() {
 		// Pre-requisites
 		changeProfilePOM.clickLogin();
-		changeProfilePOM.sendUserName("manzoor@gmail.com");
-		changeProfilePOM.sendPassword("manzoor");
+		changeProfilePOM.sendUserName("kasdasgu@in.ibm.com");
+		changeProfilePOM.sendPassword("training2018");
 		changeProfilePOM.clickLoginBtn();
 		
 		// Clicking on dit My Profile
+		changeProfilePOM.UserProfileclick();
 		changeProfilePOM.EditProfile();		
-		changeProfilePOM.sendLastName("manzoor");
+		changeProfilePOM.sendLastName("manzoor111");
 		changeProfilePOM.sendPhone("9876543210");		 
 		changeProfilePOM.UpdateProfile();
 		screenShot.captureScreenShot("First");

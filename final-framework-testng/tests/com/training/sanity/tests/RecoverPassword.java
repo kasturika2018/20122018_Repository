@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -55,6 +56,16 @@ public class RecoverPassword {
 		recoverPOM.clickLostPassword();
 		recoverPOM.EmailAddress("kasdasgu@in.ibm.com");
 		recoverPOM.ResetPassword();
+		
+		// Go to URL
+		//Reset Password link: http://realestate.hommelle.com/reset-password/?login=kasdasgu%40in.ibm.com&key=AxmRunH8yGshKDO6bJix 
+		
+		driver.get("http://realestate.hommelle.com/reset-password/?login=kasdasgu%40in.ibm.com&key=JAPgJNr1oVxVdeJMCJbY");
+	    driver.manage().window().setSize( new Dimension( 1124, 850 ) );
+		
+		recoverPOM.Newpassword("training2018");
+		recoverPOM.RepeateNewpassword("training2018");
+		recoverPOM.ResetNewpassword();
 		screenShot.captureScreenShot("First");
 	}
 }

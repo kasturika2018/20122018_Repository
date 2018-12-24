@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ChangeProfilePOM {
-private static final String LastName1 = null;
 
-private WebDriver driver; 
+
+	private WebDriver driver; 
 	
 	public ChangeProfilePOM(WebDriver driver) {
 		this.driver = driver; 
@@ -31,24 +31,29 @@ private WebDriver driver;
 	
 	
 	//Find My Profile link
+
+	@FindBy(className="user-menu-active")
+	private WebElement UserProfile;
 	
-	@FindBy(id="wp-admin-bar-my-account")
+	@FindBy(xpath="/html/body/div[1]/header/div[2]/div[2]/div/div/div/ul/li[1]/a")
 	private WebElement EditProfile; 
 	
 	// Find Last Name Title textbox
 	
-	@FindBy(className= "last_name")
+	@FindBy(id= "last-name")
 	private WebElement LastName11;
 	
 	// Find Phone textbox
 	
-	@FindBy(className= "user-phone-wrap")
+	@FindBy(name= "phone")
 	private WebElement Phone;
 	
 	
 	// Find Phone textbox
-	@FindBy(id="submit")
-	private WebElement UpdateProfile;
+	// @FindBy(xpath="/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/form/button")
+	@FindBy(name= "my-account-submission")
+		private WebElement UpdateProfile;
+	
 	
 	// These methods are for initial login
 	public void sendUserName(String userName) {
@@ -69,6 +74,9 @@ private WebDriver driver;
 	}
 	
 	//Click on Edit Profile link
+	public void UserProfileclick() {
+		this.UserProfile.click();
+	}
 	
 	public void EditProfile() {
 		this.EditProfile.click(); 
@@ -92,5 +100,6 @@ private WebDriver driver;
 		public void UpdateProfile() {
 			this.UpdateProfile.click(); 
 		}
+	
 
 }
