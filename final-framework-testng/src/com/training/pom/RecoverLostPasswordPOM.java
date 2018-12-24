@@ -31,7 +31,7 @@ private WebDriver driver;
 	@FindBy(className="lostpassword-button")
 	private WebElement ResetPassword;
 	
-		
+	
 	public void clickLogin() {
 		this.Logintestlink.click(); 
 	}

@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ChangeProfilePOM {
+private static final String LastName1 = null;
+
 private WebDriver driver; 
 	
 	public ChangeProfilePOM(WebDriver driver) {
@@ -14,6 +16,7 @@ private WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
+	// These are for initial login 
 	@FindBy(className="sign-in")
 	private WebElement Logintestlink; 
 	
@@ -26,13 +29,29 @@ private WebDriver driver;
 	@FindBy(name="login")
 	private WebElement loginBtn1; 
 	
-	@FindBy(name="login")
-	private WebElement loginBtn; 
+	
+	//Find My Profile link
 	
 	@FindBy(id="wp-admin-bar-my-account")
 	private WebElement EditProfile; 
 	
-		public void sendUserName(String userName) {
+	// Find Last Name Title textbox
+	
+	@FindBy(className= "last_name")
+	private WebElement LastName11;
+	
+	// Find Phone textbox
+	
+	@FindBy(className= "user-phone-wrap")
+	private WebElement Phone;
+	
+	
+	// Find Phone textbox
+	@FindBy(id="submit")
+	private WebElement UpdateProfile;
+	
+	// These methods are for initial login
+	public void sendUserName(String userName) {
 		this.userName.clear();
 		this.userName.sendKeys(userName);
 	}
@@ -48,11 +67,30 @@ private WebDriver driver;
 	public void clickLogin() {
 	this.Logintestlink.click(); 
 	}
-	public void editProfile() {
-		Actions builder = new Actions(driver);
-		builder.moveToElement(EditProfile).build().perform();
-		
+	
+	//Click on Edit Profile link
+	
+	public void EditProfile() {
+		this.EditProfile.click(); 
+	}
+	
+	// Enter valid credentials in Last Name Title textbox
+	
+	
+	public void sendLastName(String LastName) {
+	this.LastName11.sendKeys(LastName);
 		
 	}
+	
+	// Enter valid credentials in Phone textbox
+	
+	public void sendPhone(String Phone) {
+		this.Phone.sendKeys(Phone);
+	}
+	//Click on Update Profile button
+	
+		public void UpdateProfile() {
+			this.UpdateProfile.click(); 
+		}
 
 }

@@ -48,11 +48,17 @@ public class ChangeProfile {
 	}
 	@Test
 	public void validLoginTest() {
+		// Pre-requisites
 		changeProfilePOM.clickLogin();
-		changeProfilePOM.sendUserName("admin");
-		changeProfilePOM.sendPassword("admin@123");
-		changeProfilePOM.clickLoginBtn(); 
-		changeProfilePOM.editProfile();
+		changeProfilePOM.sendUserName("manzoor@gmail.com");
+		changeProfilePOM.sendPassword("manzoor");
+		changeProfilePOM.clickLoginBtn();
+		
+		// Clicking on dit My Profile
+		changeProfilePOM.EditProfile();		
+		changeProfilePOM.sendLastName("manzoor");
+		changeProfilePOM.sendPhone("9876543210");		 
+		changeProfilePOM.UpdateProfile();
 		screenShot.captureScreenShot("First");
 	}
 }

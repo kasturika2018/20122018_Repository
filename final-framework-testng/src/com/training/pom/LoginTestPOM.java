@@ -25,8 +25,8 @@ private WebDriver driver;
 	@FindBy(name="login")
 	private WebElement loginBtn1; 
 	
-	@FindBy(name="login")
-	private WebElement loginBtn; 
+	//@FindBy(name="login")
+	//private WebElement loginBtn; 
 	
 		public void sendUserName(String userName) {
 		this.userName.clear();
@@ -45,8 +45,4 @@ private WebDriver driver;
 	this.Logintestlink.click(); 
 	}
 
-	public void EmailAddress(String string) {
-		// TODO Auto-generated method stub
-		
-	}
   }
