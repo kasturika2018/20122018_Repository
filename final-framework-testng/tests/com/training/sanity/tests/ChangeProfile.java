@@ -55,7 +55,7 @@ public class ChangeProfile {
 		changeProfilePOM.clickLoginBtn();
 		
 		// Clicking on dit My Profile
-		changeProfilePOM.UserProfileclick();
+		//changeProfilePOM.UserProfileclick();
 		changeProfilePOM.EditProfile();		
 		changeProfilePOM.sendLastName("manzoor111");
 		changeProfilePOM.sendPhone("9876543210");		 

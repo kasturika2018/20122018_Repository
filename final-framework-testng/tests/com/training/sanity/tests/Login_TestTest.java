@@ -1,10 +1,12 @@
 package com.training.sanity.tests;
+import java.util.List;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -48,10 +50,18 @@ public class Login_TestTest {
 	}
 	@Test
 	public void validLoginTest() {
+		
+		String ExpectedResult="My Profile – Real Estate";
 		loginPOM.clickLogin();
-		loginPOM.sendUserName("kasdasgu@in.ibm.com");
+			
+   	
+    	loginPOM.sendUserName("kasdasgu@in.ibm.com");
 		loginPOM.sendPassword("training2018");
 		loginPOM.clickLoginBtn(); 
+		//Verify the Page
+		String ActualResult = driver.getTitle();
+		System.out.println(ActualResult);
+		Assert.assertEquals(ActualResult, ExpectedResult);
 		screenShot.captureScreenShot("First");
 	}
 }

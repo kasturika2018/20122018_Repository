@@ -32,10 +32,10 @@ public class ChangeProfilePOM {
 	
 	//Find My Profile link
 
-	@FindBy(className="user-menu-active")
-	private WebElement UserProfile;
+	//@FindBy(css=".user-menu > ul:nth-child(2)")
+	//private WebElement UserProfile;
 	
-	@FindBy(xpath="/html/body/div[1]/header/div[2]/div[2]/div/div/div/ul/li[1]/a")
+	@FindBy(className="current")
 	private WebElement EditProfile; 
 	
 	// Find Last Name Title textbox
@@ -50,8 +50,8 @@ public class ChangeProfilePOM {
 	
 	
 	// Find Phone textbox
-	// @FindBy(xpath="/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/form/button")
-	@FindBy(name= "my-account-submission")
+	@FindBy(xpath="/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/form/button")
+	//@FindBy(name= "my-account-submission")
 		private WebElement UpdateProfile;
 	
 	
@@ -74,9 +74,9 @@ public class ChangeProfilePOM {
 	}
 	
 	//Click on Edit Profile link
-	public void UserProfileclick() {
-		this.UserProfile.click();
-	}
+	//public void UserProfileclick() {
+	//	this.UserProfile.click();
+	//}
 	
 	public void EditProfile() {
 		this.EditProfile.click(); 
@@ -86,6 +86,7 @@ public class ChangeProfilePOM {
 	
 	
 	public void sendLastName(String LastName) {
+		this.LastName11.clear();
 	this.LastName11.sendKeys(LastName);
 		
 	}
@@ -93,6 +94,7 @@ public class ChangeProfilePOM {
 	// Enter valid credentials in Phone textbox
 	
 	public void sendPhone(String Phone) {
+		this.Phone.clear();
 		this.Phone.sendKeys(Phone);
 	}
 	//Click on Update Profile button
