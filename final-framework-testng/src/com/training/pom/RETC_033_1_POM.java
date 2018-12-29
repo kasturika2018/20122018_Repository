@@ -1,5 +1,9 @@
 package com.training.pom;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,17 +39,18 @@ public class RETC_033_1_POM {
 		
 	//3. Enter valid credentials in Enter Title Here textbox
 		
-		@FindBy(id = "title-prompt-text")
+		@FindBy(id = "title")
 		private WebElement TitleHere;
 		
 	//4. Enter valid credentials in textbox
 		
-		@FindBy(id = "content_ifr")
-		private WebElement textbox1;
+		
+		@FindBy(xpath = "//textarea[@id='content']")
+		private WebElement Textbox;
 		
 	//5. Click on Publish button
 		
-		@FindBy(id = "publish")
+		@FindBy(xpath = "//input[@id='publish']")
 		private WebElement publish;
 		
 	//6. Click on All Properties link
@@ -89,19 +94,26 @@ public class RETC_033_1_POM {
 	//4. Enter valid credentials in textbox
 
 	public void textbox (String textbox) {
-	this.textbox1.clear(); 
-	this.textbox1.sendKeys(textbox);
+		
+	//driver.switchTo().frame(0);
+	this.Textbox.clear(); 
+	this.Textbox.sendKeys(textbox);
+	//driver.switchTo().defaultContent();
 	}
 		
 	//5. Click on Publish button
 	
-	public void Publish() {
+	public void Publish() throws AWTException {
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_PAGE_UP);
 		this.publish.click();
 		}
 	
 	//6. Click on All Properties link
 
-	
+	public void AllPropertieslink() {
+		this.AllPropertieslink.click();
+		}
 	
 }
 

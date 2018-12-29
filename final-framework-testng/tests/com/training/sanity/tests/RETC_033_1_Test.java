@@ -1,5 +1,6 @@
 package com.training.sanity.tests;
 
+import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -48,13 +49,14 @@ public class RETC_033_1_Test {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() {
+	public void validLoginTest() throws AWTException, InterruptedException {
 		
 		String ExpectedResult="My Profile – Real Estate";
-				 	
+		Thread.sleep(5000);	 	
 		RETC033.sendUserName("admin");
 		RETC033.sendPassword("admin@123");
-		RETC033.clickLoginBtn(); 
+		RETC033.clickLoginBtn();
+		Thread.sleep(5000);
 		//Verify the Page
 		/*
 		String ActualResult = driver.getTitle();
@@ -64,11 +66,18 @@ public class RETC_033_1_Test {
 		//1. Click on Properties tab
 		*/
 		RETC033.Propertiestab();
+		Thread.sleep(5000);
 		RETC033.AddNewlink1();
+		Thread.sleep(5000);
 		RETC033.TitleHere1("New Property Avidipta");
+		Thread.sleep(5000);
 		RETC033.textbox("3BHK on 10th Floor");
+		Thread.sleep(5000);
 		RETC033.Publish(); 
-		
+		Thread.sleep(5000);
+		RETC033.Propertiestab();
+		Thread.sleep(5000);
+		System.out.println("test");
 		
 	}
 }
