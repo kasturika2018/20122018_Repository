@@ -51,20 +51,13 @@ public class RETC_033_1_Test {
 	@Test
 	public void validLoginTest() throws AWTException, InterruptedException {
 		
-		String ExpectedResult="My Profile – Real Estate";
+		String ExpectedResult="Post published. View post";
 		Thread.sleep(5000);	 	
 		RETC033.sendUserName("admin");
 		RETC033.sendPassword("admin@123");
 		RETC033.clickLoginBtn();
 		Thread.sleep(5000);
-		//Verify the Page
-		/*
-		String ActualResult = driver.getTitle();
-		System.out.println(ActualResult);
-		Assert.assertEquals(ActualResult, ExpectedResult);
-		screenShot.captureScreenShot("First");
-		//1. Click on Properties tab
-		*/
+		
 		RETC033.Propertiestab();
 		Thread.sleep(5000);
 		RETC033.AddNewlink1();
@@ -75,9 +68,12 @@ public class RETC_033_1_Test {
 		Thread.sleep(5000);
 		RETC033.Publish(); 
 		Thread.sleep(5000);
+		String ActualResult = RETC033.PostPublish();
+		Assert.assertEquals(ActualResult, ExpectedResult);
+			
 		RETC033.Propertiestab();
 		Thread.sleep(5000);
-		System.out.println("test");
 		
+				
 	}
 }

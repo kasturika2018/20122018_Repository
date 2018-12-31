@@ -53,6 +53,10 @@ public class RETC_033_1_POM {
 		@FindBy(xpath = "//input[@id='publish']")
 		private WebElement publish;
 		
+	// Post publish message
+		@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/p")
+		private WebElement postPublishMessage;
+		
 	//6. Click on All Properties link
 		
 		@FindBy(id = "wp-first-item current")
@@ -110,7 +114,9 @@ public class RETC_033_1_POM {
 		}
 	
 	//6. Click on All Properties link
-
+	public String PostPublish() {
+		return this.postPublishMessage.getText();
+	}
 	public void AllPropertieslink() {
 		this.AllPropertieslink.click();
 		}

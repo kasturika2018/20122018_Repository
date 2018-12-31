@@ -5,8 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -50,38 +51,31 @@ public class RETC_039Test {
 		@Test
 		public void validLoginTest() throws AWTException, InterruptedException {
 			
-			String ExpectedResult="My Profile – Real Estate";
+			String ExpectedResult="Post published. View post";
 			Thread.sleep(5000);	 	
 			RETC039.sendUserName("admin");
 			RETC039.sendPassword("admin@123");
 			RETC039.clickLoginBtn();
 			Thread.sleep(5000);
-			//Verify the Page
-			/*
-			String ActualResult = driver.getTitle();
-			System.out.println(ActualResult);
-			Assert.assertEquals(ActualResult, ExpectedResult);
-			screenShot.captureScreenShot("First");
-			//1. Click on Properties tab
-			*/
-			System.out.println("Test11");
+						
 			RETC039.Postsclick();
 			Thread.sleep(5000);
 			RETC039.Categoriesclick();
-			System.out.println("Test");
+			
 			RETC039.EnterName("KASDG");
 			RETC039.EnterSlug("AAAA");
 			RETC039.EnterDesc("TEST KAS");
-			System.out.println("Tes1");
-			//Thread.sleep(5000);
-			//RETC033.TitleHere1("New Property Avidipta");
-			//Thread.sleep(5000);
-			//RETC033.textbox("3BHK on 10th Floor");
-			//Thread.sleep(5000);
-			//RETC033.Publish(); 
-			//Thread.sleep(5000);
-			//RETC033.Propertiestab();
-			//Thread.sleep(5000);
+			RETC039.AddNewCategoryClick();
+			RETC039.Postsclick();
+			RETC039.AllPostsClick();
+			RETC039.AddNewClick();
+			RETC039.EnterTitleTextBox("Kasturika Post");
+			RETC039.EnterBodyTextBox("Add for purchase");
+			RETC039.CategoryClick();
 			
+			RETC039.Publish();
+			Thread.sleep(5000);
+			
+					
 		}
 }

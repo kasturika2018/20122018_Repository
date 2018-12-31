@@ -1,4 +1,6 @@
 package com.training.sanity.tests;
+
+
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,16 +14,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.RETC_051POM;
+import com.training.pom.RETC45POM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 
-public class RETC_051 {
+public class RETC_45 {
 	
+	
+
 		private WebDriver driver;
 		private String baseUrl;
-		private RETC_051POM RETC051;
+		private RETC45POM RETC045;
 		private static Properties properties;
 		private ScreenShot screenShot;
 
@@ -35,7 +39,7 @@ public class RETC_051 {
 		@BeforeMethod
 		public void setUp() throws Exception {
 			driver = DriverFactory.getDriver(DriverNames.CHROME);
-			RETC051 = new RETC_051POM(driver); 
+			RETC045 = new RETC45POM(driver); 
 			baseUrl = properties.getProperty("baseURL");
 			//System.out.print(baseUrl);
 			screenShot = new ScreenShot(driver); 
@@ -49,41 +53,46 @@ public class RETC_051 {
 			driver.quit();
 		}
 		@Test
-		public void RETC_051() throws AWTException, InterruptedException {
+		public void validLoginTest() throws AWTException, InterruptedException {
 			
+			String ExpectedResult="Post published. View post";
 			Thread.sleep(5000);	 	
-			RETC051.sendUserName("admin");
-			RETC051.sendPassword("admin@123");
-			RETC051.clickLoginBtn();
+			RETC045.sendUserName("admin");
+			RETC045.sendPassword("admin@123");
+			RETC045.clickLoginBtn();
 			Thread.sleep(5000);
+			//Verify the Page
+					
 			
+			RETC045.Propertiestab();
+			Thread.sleep(5000);
+			RETC045.clickRegionLink();
+			Thread.sleep(5000);
+			RETC045.EnterNameTextBox("KolkataRegion");;
+			Thread.sleep(5000);
+			RETC045.EnterSlugTextBox("kolkata");
+			Thread.sleep(5000);
+			RETC045.selectParentRegion("Resale");
+			Thread.sleep(5000);
+			RETC045.EnterDescTextBox("Resale in Kolkata");
+			Thread.sleep(5000);
+			RETC045.clickSubmitRegion();
+			Thread.sleep(5000);
+			RETC045.clickAddNew();
+			Thread.sleep(5000);
+			RETC045.EnterTitleTextBox("KolkataAvidipta");
+			Thread.sleep(5000);
+			RETC045.EnterCredentialsTextBox("KolkataAVD");
+			Thread.sleep(5000);
+			RETC045.RegionClick();
+			Thread.sleep(5000);
+			RETC045.Publish();
+			Thread.sleep(5000);
+			String ActualResult = RETC045.PostPublish();
+			Assert.assertEquals(ActualResult, ExpectedResult);
 						
-			//1. Click on Properties tab
-			RETC051.Propertiestab();
-			Thread.sleep(5000);
-			
-			//2. Click on All Properties link
-			RETC051.AllPropertieslink();
-			Thread.sleep(5000);
-			
-			// Click on Trash
-			RETC051.clickTrash();
-			Thread.sleep(5000);
-			
-			// Mouse over property to Restore
-			RETC051.MouseOverProperty();
-			Thread.sleep(5000);
-			
-			//3. Click on Restore link
-			RETC051.clickRestore();
-			Thread.sleep(5000);
-			
-			//6. Click on All link
-             
-			RETC051.clickAllLink();
-			Thread.sleep(5000);
-
 		}
 	}
+
 
 
