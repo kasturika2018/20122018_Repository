@@ -1,7 +1,10 @@
+//Objective: To verify whether application allows admin to create property based on the Region created
 package com.training.sanity.tests;
 
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -49,45 +52,49 @@ public class RETC_45 {
 		
 		@AfterMethod
 		public void tearDown() throws Exception {
-			Thread.sleep(1000);
+			
 			driver.quit();
 		}
 		@Test
 		public void validLoginTest() throws AWTException, InterruptedException {
 			
 			String ExpectedResult="Post published. View post";
-			Thread.sleep(5000);	 	
+				 	
 			RETC045.sendUserName("admin");
 			RETC045.sendPassword("admin@123");
 			RETC045.clickLoginBtn();
-			Thread.sleep(5000);
+			
 			//Verify the Page
 					
 			
 			RETC045.Propertiestab();
-			Thread.sleep(5000);
+			
 			RETC045.clickRegionLink();
-			Thread.sleep(5000);
+			
 			RETC045.EnterNameTextBox("KolkataRegion");;
-			Thread.sleep(5000);
+			
 			RETC045.EnterSlugTextBox("kolkata");
-			Thread.sleep(5000);
+			
 			RETC045.selectParentRegion("Resale");
-			Thread.sleep(5000);
+			
 			RETC045.EnterDescTextBox("Resale in Kolkata");
-			Thread.sleep(5000);
+			
 			RETC045.clickSubmitRegion();
-			Thread.sleep(5000);
+			;
 			RETC045.clickAddNew();
-			Thread.sleep(5000);
+			
 			RETC045.EnterTitleTextBox("KolkataAvidipta");
-			Thread.sleep(5000);
+			;
 			RETC045.EnterCredentialsTextBox("KolkataAVD");
-			Thread.sleep(5000);
+			
 			RETC045.RegionClick();
-			Thread.sleep(5000);
+			
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_PAGE_UP);
+			RETC045.WaitForPublish();
 			RETC045.Publish();
-			Thread.sleep(5000);
+			RETC045.WaitPostPublish();
+			
 			String ActualResult = RETC045.PostPublish();
 			Assert.assertEquals(ActualResult, ExpectedResult);
 						

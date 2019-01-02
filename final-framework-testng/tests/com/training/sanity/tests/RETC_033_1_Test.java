@@ -1,11 +1,22 @@
+//Objective: Post New Property from "Add New" link of Properties Tab and verify whether application allows admin to view added property details in All Properties window
+
 package com.training.sanity.tests;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -40,39 +51,59 @@ public class RETC_033_1_Test {
 		//System.out.print(baseUrl);
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
+		
 		driver.get(baseUrl);
+		
 	}
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-		Thread.sleep(1000);
+		
 		driver.quit();
 	}
+	
 	@Test
 	public void validLoginTest() throws AWTException, InterruptedException {
 		
 		String ExpectedResult="Post published. View post";
-		Thread.sleep(5000);	 	
+			
+		// Enter login ( adin ) , password and Sign-In
 		RETC033.sendUserName("admin");
 		RETC033.sendPassword("admin@123");
 		RETC033.clickLoginBtn();
-		Thread.sleep(5000);
 		
+		
+		// Click on Properties Tab
 		RETC033.Propertiestab();
-		Thread.sleep(5000);
+				
+		// Click on Add New Link of Propeties Tab
 		RETC033.AddNewlink1();
-		Thread.sleep(5000);
+				
+		 // Enter Property Title
 		RETC033.TitleHere1("New Property Avidipta");
-		Thread.sleep(5000);
+		
+		// Enter Property Desc
 		RETC033.textbox("3BHK on 10th Floor");
-		Thread.sleep(5000);
+		
+		
+		// Publish the property
+		
+		
+		RETC033.WaitForPublish();	
+		
 		RETC033.Publish(); 
-		Thread.sleep(5000);
+		
+		RETC033.WaitPostPublish();
+	
+		
+		// Validate Post Publish message
 		String ActualResult = RETC033.PostPublish();
+		System.out.println(ActualResult);
 		Assert.assertEquals(ActualResult, ExpectedResult);
 			
+		// View the submitted property in All Properties Tab
 		RETC033.Propertiestab();
-		Thread.sleep(5000);
+		
 		
 				
 	}

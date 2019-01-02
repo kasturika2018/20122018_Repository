@@ -1,3 +1,4 @@
+//To verify whether application displays property details in all properties. upon clicking Restore link of selected property " New Property Avidipta" details in Trash
 package com.training.pom;
 
 
@@ -71,11 +72,11 @@ public class RETC_051POM {
 		
 		// Mouse over on Property to be restored
 		
-		@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form[1]/table/tbody/tr[2]/td[1]/strong")
+		@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form[1]/table/tbody/tr[1]/td[1]/strong")
 		private WebElement PropertyToRestore;
 		
 		// Click on Restore
-		@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form[1]/table/tbody/tr[2]/td[1]/div[2]/span[1]/a")
+		@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form[1]/table/tbody/tr[1]/td[1]/div[2]/span[1]/a")
 		private WebElement Restore;
 		
 		// Click on All Link

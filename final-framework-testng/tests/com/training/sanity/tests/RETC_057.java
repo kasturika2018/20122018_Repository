@@ -1,6 +1,10 @@
+//Objective:To verify whether application allows admin to create property details based on the Feature created
+
 package com.training.sanity.tests;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -45,42 +49,49 @@ public class RETC_057 {
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-		Thread.sleep(1000);
+		
 		driver.quit();
 	}
 	@Test
 	public void validLoginTest() throws AWTException, InterruptedException {
 		
 		String ExpectedResult="Post published. View post";
-		Thread.sleep(5000);	 	
+			 	
 		RETC057.sendUserName("admin");
 		RETC057.sendPassword("admin@123");
 		RETC057.clickLoginBtn();
-		Thread.sleep(5000);
+		
 				
 		
 		RETC057.Propertiestab();
-		Thread.sleep(5000);
+		
 		RETC057.clickFeaturesLink();;
-		Thread.sleep(5000);
+		
 		RETC057.EnterNameTextBox("OpenBalcony");;
-		Thread.sleep(5000);
+		
 		RETC057.EnterSlugTextBox("Balcony");
-		Thread.sleep(5000);
+		
 		RETC057.EnterDescTextBox("Apartment with Open Balcony");
-		Thread.sleep(5000);
+		;
 		RETC057.clickSubmitFeature();
-		Thread.sleep(5000);
+		
 		RETC057.clickAddNew();
-		Thread.sleep(5000);
+		
 		RETC057.EnterTitleTextBox(" Avidipta PhaseI");
-		Thread.sleep(5000);
+		
 		RETC057.EnterCredentialsTextBox("Avidipta Kolkata");
-		Thread.sleep(5000);
+		
 		RETC057.FeatureClick();
-		Thread.sleep(5000);
+		
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_PAGE_UP);
+		
+		RETC057.WaitForPublish();
+		
 		RETC057.Publish();
-		Thread.sleep(5000);
+		
+		RETC057.WaitPostPublish();
+		
 		String ActualResult = RETC057.PostPublish();
 		Assert.assertEquals(ActualResult, ExpectedResult);
 				

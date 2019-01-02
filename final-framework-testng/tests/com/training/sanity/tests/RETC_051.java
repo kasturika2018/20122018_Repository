@@ -1,3 +1,4 @@
+//To verify whether application displays property details in all properties. upon clicking Restore link of selected property " New Property Avidipta" details in Trash
 package com.training.sanity.tests;
 import java.awt.AWTException;
 import java.io.FileInputStream;
@@ -45,43 +46,42 @@ public class RETC_051 {
 		
 		@AfterMethod
 		public void tearDown() throws Exception {
-			Thread.sleep(1000);
 			driver.quit();
 		}
 		@Test
 		public void RETC_051() throws AWTException, InterruptedException {
 			
-			Thread.sleep(5000);	 	
+				 	
 			RETC051.sendUserName("admin");
 			RETC051.sendPassword("admin@123");
 			RETC051.clickLoginBtn();
-			Thread.sleep(5000);
+			
 			
 						
 			//1. Click on Properties tab
 			RETC051.Propertiestab();
-			Thread.sleep(5000);
+			
 			
 			//2. Click on All Properties link
 			RETC051.AllPropertieslink();
-			Thread.sleep(5000);
+			
 			
 			// Click on Trash
 			RETC051.clickTrash();
-			Thread.sleep(5000);
+			
 			
 			// Mouse over property to Restore
 			RETC051.MouseOverProperty();
-			Thread.sleep(5000);
+			
 			
 			//3. Click on Restore link
 			RETC051.clickRestore();
-			Thread.sleep(5000);
+			
 			
 			//6. Click on All link
              
 			RETC051.clickAllLink();
-			Thread.sleep(5000);
+			
 
 		}
 	}

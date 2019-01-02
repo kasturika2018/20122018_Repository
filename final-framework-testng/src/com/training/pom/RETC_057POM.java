@@ -1,3 +1,4 @@
+//Objective:To verify whether application allows admin to create property details based on the Feature created
 package com.training.pom;
 
 import java.awt.AWTException;
@@ -8,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RETC_057POM {
 	
@@ -71,12 +74,21 @@ public class RETC_057POM {
 	// Click on checkbox in the added Features
 	@FindBy(id="in-property_feature-200")
 	private WebElement Feature;
-				
-	//5. Click on Publish button
+	
+	// Wait for Publish button
+	
+	@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/a")
+	private WebElement WaitForPublish;
+	
+	// Click on Publish button
 				
 	@FindBy(xpath = "//input[@id='publish']")
 	private WebElement publish;
 	
+	// Wait for Post Publish
+	@FindBy(xpath = "/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/p/a")
+	private WebElement WaitPostPublish;
+			
 	// Post publish message
 	@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/p")
 	private WebElement postPublishMessage;
@@ -149,12 +161,23 @@ public class RETC_057POM {
 			this.Feature.click();
 		}
 		
+		public void WaitForPublish() {
+			WebDriverWait wait= new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.elementToBeClickable(WaitForPublish));
+			
+		}
 		// Publish
 		public void Publish() throws AWTException {
-			Robot robot = new Robot();
-			robot.keyPress(KeyEvent.VK_PAGE_UP);
+
 			this.publish.click();
-			}
+		}
+		
+		public void WaitPostPublish () {
+			
+			WebDriverWait wait1= new WebDriverWait(driver, 30);
+			wait1.until(ExpectedConditions.elementToBeClickable(WaitPostPublish)); 
+		
+		}
 		public String PostPublish() {
 			return this.postPublishMessage.getText();
 		}

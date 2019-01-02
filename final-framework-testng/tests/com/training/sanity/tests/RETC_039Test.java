@@ -1,6 +1,9 @@
+//Objective: To verify whether application allows admin to add post based on the created category
 package com.training.sanity.tests;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -45,27 +48,28 @@ public class RETC_039Test {
 		
 		@AfterMethod
 		public void tearDown() throws Exception {
-			Thread.sleep(1000);
 			driver.quit();
 		}
+		
 		@Test
 		public void validLoginTest() throws AWTException, InterruptedException {
 			
 			String ExpectedResult="Post published. View post";
-			Thread.sleep(5000);	 	
+				 	
 			RETC039.sendUserName("admin");
 			RETC039.sendPassword("admin@123");
 			RETC039.clickLoginBtn();
-			Thread.sleep(5000);
+			
 						
 			RETC039.Postsclick();
-			Thread.sleep(5000);
+			
 			RETC039.Categoriesclick();
 			
 			RETC039.EnterName("KASDG");
 			RETC039.EnterSlug("AAAA");
 			RETC039.EnterDesc("TEST KAS");
 			RETC039.AddNewCategoryClick();
+			
 			RETC039.Postsclick();
 			RETC039.AllPostsClick();
 			RETC039.AddNewClick();
@@ -73,8 +77,15 @@ public class RETC_039Test {
 			RETC039.EnterBodyTextBox("Add for purchase");
 			RETC039.CategoryClick();
 			
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_PAGE_UP);
+			
+			RETC039.WaitForPublish();
 			RETC039.Publish();
-			Thread.sleep(5000);
+			RETC039.WaitPostPublish();
+			
+			String ActualResult = RETC039.PostPublish();
+			Assert.assertEquals(ActualResult, ExpectedResult);
 			
 					
 		}
