@@ -25,7 +25,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.RETC_033_1_POM;
+import com.training.pom.PostNewPropertyPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 

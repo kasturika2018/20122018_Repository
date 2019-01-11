@@ -15,11 +15,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RETC_033_1_POM {
+public class PostNewPropertyPOM {
 	
 	    private WebDriver driver; 
 		
-		public RETC_033_1_POM(WebDriver driver) {
+		public PostNewPropertyPOM(WebDriver driver) {
 			this.driver = driver; 
 			PageFactory.initElements(driver, this);
 		}
@@ -54,9 +54,11 @@ public class RETC_033_1_POM {
 		
 		// Enter valid credentials in textbox
 		
-		@FindBy(xpath = "//textarea[@id='content']")
+		//@FindBy(xpath = "//textarea[@id='content']")
+		@FindBy(xpath="//*[@id=\"content_ifr\"]")
 		private WebElement Textbox;
-		
+		//*[@id="content_ifr"]
+		//*[@id="content_ifr"]
 		// Wait for Publish button
 		
 		@FindBy(xpath="/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/a")
