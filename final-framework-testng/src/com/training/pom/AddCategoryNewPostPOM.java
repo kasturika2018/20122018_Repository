@@ -94,7 +94,13 @@ public class AddCategoryNewPostPOM {
 	
 	@FindBy(xpath="/html/body/div[1]/div[3]/div/article/div[3]/div/div/div/div/div/div[1]/div/div[3]/form/input[1]")
 	private WebElement PropertySearch;
-			
+	
+	@FindBy(xpath="/html/body/div[10]/div/div/div[1]/div/div[1]/div[1]/h3/a")
+	private WebElement SearchResult;
+	
+	@FindBy(xpath="/html/body/div[1]/div[4]/div/div/div[1]/div[1]/div/a")
+	private WebElement AddedPropertyPage;
+	
 	public void sendusername1(String username) {
 	this.username1.click();
 	this.username1.sendKeys(username);
@@ -171,6 +177,8 @@ public class AddCategoryNewPostPOM {
 		wait1.until(ExpectedConditions.elementToBeClickable(WaitPostPublish)); 
 	
 	}
+	
+	
 	public void clickpublish() {
 	// TODO Auto-generated method stub
 	this.publish.click();
@@ -203,6 +211,26 @@ public class AddCategoryNewPostPOM {
 	
 	public void searchProperty(String Property) {
 		this.PropertySearch.sendKeys(Property);
+		;
+		Actions action = new Actions( driver );
+		action.moveToElement(this.PropertySearch).sendKeys(Keys.ENTER).build().perform();
 		this.PropertySearch.sendKeys(Keys.ENTER);
 	}
+	
+	public void WaitPropertyList () {
+		
+		WebDriverWait wait1= new WebDriverWait(driver, 30);
+		wait1.until(ExpectedConditions.elementToBeClickable(PropertySearch)); 
+	
+	}
+	public void clickSearchResult(){
+		this.SearchResult.click();
+	}
+	public void WaitForAddedProperty () {
+		
+		WebDriverWait wait1= new WebDriverWait(driver, 30);
+		wait1.until(ExpectedConditions.elementToBeClickable(AddedPropertyPage)); 
+	
+	}
+	
 }

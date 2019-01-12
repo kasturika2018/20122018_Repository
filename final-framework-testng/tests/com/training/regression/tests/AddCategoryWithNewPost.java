@@ -92,7 +92,11 @@ public class AddCategoryWithNewPost {
 		
 		AddCatPOM.WaitForSearchProperty();
 		AddCatPOM.searchProperty("Avidipta Housing");
-		Thread.sleep(7000);
+		
+		AddCatPOM.WaitPropertyList();
+		AddCatPOM.clickSearchResult();
+		AddCatPOM.WaitForAddedProperty();
+		
 	}
 
 }
